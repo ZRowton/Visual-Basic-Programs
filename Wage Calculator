@@ -1,0 +1,27 @@
+Public Class Form1
+    Private Sub calculateButton_Click(sender As Object, e As EventArgs) Handles calculateButton.Click
+
+        If (Val(hoursTextBox.Text) > 40) Then
+            earningsDisplayLabel.Text = Format(((Val(hoursTextBox.Text) - 40) * (Val(wageTextBox.Text) * 1.5) + (Val(wageTextBox.Text) * 40)), "Currency")
+
+        Else
+            earningsDisplayLabel.Text = Format(wageTextBox.Text * hoursTextBox.Text, "Currency")
+        End If
+        fwtDisplayLabel.Text = Format(earningsDisplayLabel.Text * 0.15, "Currency")
+        netDisplayLabel.Text = Format(earningsDisplayLabel.Text - fwtDisplayLabel.Text, "Currency")
+
+
+    End Sub
+
+    Private Sub clearButton_Click(sender As Object, e As EventArgs) Handles clearButton.Click
+        wageTextBox.Text = String.Empty
+        hoursTextBox.Text = String.Empty
+        earningsDisplayLabel.Text = String.Empty
+        fwtDisplayLabel.Text = String.Empty
+        netDisplayLabel.Text = String.Empty
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+End Class
