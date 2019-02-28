@@ -1,0 +1,20 @@
+Public Class Form1
+    Dim p As Double = 0
+    Dim a As Double = 0
+    Dim r As Double = 0
+    Dim n As Double = 0
+    Dim present As Double = 0
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        a = CDbl(futureTextBox.Text)
+        r = CDbl(interestTextBox.Text) / 100
+        n = yearNumericUpDown.Value
+
+        ListBox1.Items.Add("Year" & vbTab & "Investment needed")
+        For index As Integer = 5 To n Step 5
+            present = a / Math.Pow((1 + r), index)
+            ListBox1.Items.Add(index.ToString & vbTab & "$" & present.ToString("N2"))
+        Next
+
+
+    End Sub
+End Class
