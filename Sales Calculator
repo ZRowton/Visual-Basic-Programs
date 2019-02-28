@@ -1,0 +1,37 @@
+Public Class Form1
+    Dim Qtt As Double = 0
+    Dim Price As Double = 0
+    Dim Total As Double = 0
+    Dim Rsl As String = ""
+    Private Sub submitButton_Click(sender As Object, e As EventArgs) Handles submitButton.Click
+        Dim Qtt As Double = CDbl(quatityTextBox.Text)
+        Select Case productNumeric.Value
+            Case 1
+                Price = Qtt * 2.98
+                Rsl += "Product 1: $" + Price.ToString
+            Case 2
+                Price = Qtt * 4.5
+                Rsl += "Product 2: $" + Price.ToString
+            Case 3
+                Price = Qtt * 9.98
+                Rsl += "Product 3: $" + Price.ToString
+            Case 4
+                Price = Qtt * 4.49
+                Rsl += "Product 4: $" + Price.ToString
+            Case 5
+                Price = Qtt * 6.87
+                Rsl += "Product 5: $" + Price.ToString
+        End Select
+        Total += Price
+        Rsl += vbCrLf
+        outputLabel.Text = Rsl + vbCrLf + "Total of all products sold: $" + Total.ToString
+    End Sub
+
+    Private Sub resetButton_Click(sender As Object, e As EventArgs) Handles resetButton.Click
+        Price = 0
+        Total = 0
+        Rsl = ""
+        quatityTextBox.Text = "0"
+        outputLabel.Text = Rsl + vbCrLf + "Total of all products sold: $" + Total.ToString
+    End Sub
+End Class
